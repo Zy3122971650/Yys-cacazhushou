@@ -3,6 +3,8 @@ function WHERE ()
 	init("0",1)
 	showHUD(id,"未发现当前位置",30,"0xffff0000","0xffffffff",0,100,0,228,32)      --显示HUD内容
 	while ( true ) do 
+		
+		
 		x, y = findColor({0, 0, 1919, 1079}, 
 			"0|0|0xe9d595,21|-26|0x7974d2,29|21|0xbf4441",
 			90, 0, 1, 1)
@@ -34,6 +36,7 @@ function WHERE ()
 		if i == 3 then Text="召唤界面"  break end
 		if i == 4 then Text="探索界面" break end
 		if i == -1 then Text="未发现当前位置"end
+		mSleep(500)
 	
 end 
 showHUD(id,Text,30,"0xffff0000","0xffffffff",0,100,0,228,32)
