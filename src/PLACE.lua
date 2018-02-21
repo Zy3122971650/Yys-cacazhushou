@@ -23,7 +23,10 @@ function WHERE ()
 					if x > -1 then
 						i=4 --探索界面
 					else
-						i=-1
+						x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)
+						if x > -1 then
+							i=5--大蛇
+						end
 					end
 				end
 			end
@@ -36,8 +39,9 @@ function WHERE ()
 		if i == 3 then Text="召唤界面"  break end
 		if i == 4 then Text="探索界面" break end
 		if i == -1 then Text="未发现当前位置"end
+		if i == 5 then Text="大蛇" break end 
 		mSleep(500)
-	
-end 
-showHUD(id,Text,30,"0xffff0000","0xffffffff",0,100,0,228,32)
+		
+	end 
+	showHUD(id,Text,30,"0xffff0000","0xffffffff",0,100,0,228,32)
 end 

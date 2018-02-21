@@ -30,12 +30,19 @@
 --胜利，失败（信息记入列表）
 循环
 --]]
+
 function equip()
+	
 	if YesOrNo_UI_EQUIP==1 --开始刷御魂
 	then
 		showHUD(id,"正在刷御魂",30,"0xffff0000","0xffffffff",0,100,0,228,32)
 		EQUIP_LAYER=tonumber(ret_UI_EQUIP["EQUIP_LAYER"])											--获取想要刷的层数
-		
+		EQUIP_TIME_INIT=tonumber(ret_UI_EQUIP["EQUIP_TIME"])
+		if EQUIP_TIME_INIT==1 then EQUIP_TIME=9
+		elseif EQUIP_TIME_INIT==2 then EQUIP_TIME=99
+		elseif EQUIP_TIME_INIT==3 then EQUIP_TIME=999
+		elseif EQUIP_TIME_INIT==4 then EQUIP_TIME=9999999
+		end
 		if i==1 --庭院
 		then
 			for	a=5, 1 ,-1 do
@@ -44,21 +51,49 @@ function equip()
 			end 
 			tap (X_EXPLORE,Y_EXPLORE)--点击探索
 			mSleep(5000)
+			tap(X_EQUIP,Y_EQUIP)--点击御魂
+			mSleep(2000)
+			tap(X_BIGSNAKE,Y_BIGSNAKE)--点击大蛇
+			mSleep(2000)
 			
 		elseif i==3 
 		then 
 			tap (X_BACK,Y_BACK)
 			  --召唤
+			  tap (X_EXPLORE,Y_EXPLORE)--点击探索
+			mSleep(5000)
+			  tap(X_EQUIP,Y_EQUIP)--点击御魂
+			mSleep(2000)
+			tap(X_BIGSNAKE,Y_BIGSNAKE)--点击大蛇
+			mSleep(2000)
+		elseif i==999 -- 第二次开始
+		then 
+			
+			if EQUIP_TIME_INIT==4 
+			then 
+				while (true) do 
+					  FIGHT ()
+				end
+			else
+				for j=EQUIP_TIME,1,-1 do
+					FIGHT()
+				end
+			end
 		elseif i==2 
 		then 
 			tap (1575,398) 
 			tap (X_EXPLORE,Y_EXPLORE)--点击探索
 			mSleep(5000) --町中 
+			tap(X_EQUIP,Y_EQUIP)--点击御魂
+			mSleep(2000)
+			tap(X_BIGSNAKE,Y_BIGSNAKE)--点击大蛇
+			mSleep(2000)
+		elseif i==5
+		then 
+			tap(X_BIGSNAKE,Y_BIGSNAKE)--点击大蛇
+			mSleep(2000)
 		end      
-		tap(X_EQUIP,Y_EQUIP)--点击御魂
-		mSleep(2000)
-		tap(X_BIGSNAKE,Y_BIGSNAKE)--点击大蛇
-		mSleep(2000)
+		
 		if (EQUIP_LAYER==0 or EQUIP_LAYER==1 or EQUIP_LAYER	==2 or EQUIP_LAYER==3) --判断顶层 数组由0开始
 		then
 			for a=3,1,-1 do --循环滑动3次 保证到达顶端
@@ -87,59 +122,7 @@ function equip()
 			if EQUIP_LAYER==9 then tap(X_EQUIP_LAYER10,Y_EQUIP_LAYER10) end
 		end 
 		--------------战斗部分----------------------------
-		mSleep(1000)
-		tap(1431,748)--点击开始
-		while (true) do 
-			x, y = findColor({885, 2, 1030, 129}, 
-				"0|0|0xfff4c7,38|9|0xb5a580,23|27|0xfff3d0",
-				100, 0, 0, 0)
-			if x > -1 then
-				break
-			end
-			mSleep(500)
-		end  --判断是否进入 战斗界面	
-		mSleep (3000)
-		x, y = findColor({1650, 746, 1849, 887}, 
-			"0|0|0xfff3d3,82|3|0xfef3dc,85|48|0xfff3d3,-4|46|0xfffaea,-13|-23|0x372f25,98|-24|0x362c23,98|47|0x33302c,-13|58|0x272218",
-			20, 0, 0, 0)
-		if x > -1 then
-	
-			tap(x,y)
-		end
-		mSleep(2000)
-		for a=3,1,-1 do  --点击中间怪
-			 tap (942,230)
-			 mSleep (200)
-		end 
-		mSleep(1000)
-		while (true )do 
-			x, y = findColorInRegionFuzzy(0x5f5fa1, 100, 1260, 104, 1556, 428, 0, 0)
-			if x == -1 then
-				x, y = findColorInRegionFuzzy(0x9da5be, 100, 1273, 83, 1579, 446, 0, 0)
-				if x > -1 then
-					for a=3,1,-1 do  --点击中间怪
-						 tap (902,108)
-						 mSleep (200)
-					end
-					break
-				end
-			
-			end
-		end 
-		mSleep(1000)
-		while (true) do 
-			x, y = findColorInRegionFuzzy(0x9da5be, 100, 1273, 83, 1579, 446, 0, 0)
-			if x == -1 then
-				x, y = findColorInRegionFuzzy(0x5f7ac2, 100, 1273, 83, 1579, 446, 0, 0)
-				if x > -1 then
-					for a=3,1,-1 do  --点击中间怪
-						 tap (977,177)
-						 mSleep (200)
-					end
-					break
-				end
-			end 
-		end 
+		FIGHT()
 		----------------END--------------------------------
 	else	--调回UI
 		hideHUD(id)
@@ -150,5 +133,4 @@ function equip()
 	
 	
 end
-
 
