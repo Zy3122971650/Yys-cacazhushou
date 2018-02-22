@@ -46,6 +46,10 @@ function equip()
 		end
 		if i==1 --庭院
 		then
+			x, y = findColorInRegionFuzzy(0xab2323, 100, 498, 870, 701, 1029, 0, 0)
+			if x > -1 then
+				tap (1865,961)
+			end
 			for	a=5, 1 ,-1 do
 				slide(729.5,208.8,918,909.2)      	  -- 左划置最边缘
 				  mSleep(500)
@@ -91,6 +95,12 @@ function equip()
 			mSleep(2000)
 		elseif i==5
 		then 
+			mSleep(500)
+		elseif i==4	
+		then
+			mSleep(2000)
+			  tap(X_EQUIP,Y_EQUIP)--点击御魂
+			mSleep(2000)
 			tap(X_BIGSNAKE,Y_BIGSNAKE)--点击大蛇
 			mSleep(2000)
 		end      

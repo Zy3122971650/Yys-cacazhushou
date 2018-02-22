@@ -1,5 +1,6 @@
 function WHERE ()
-	id = createHUD()     --创建一个HUD
+
+	
 	init("0",1)
 	showHUD(id,"未发现当前位置",30,"0xffff0000","0xffffffff",0,100,0,228,32)      --显示HUD内容
 	while ( true ) do 
@@ -44,4 +45,5 @@ function WHERE ()
 		
 	end 
 	showHUD(id,Text,30,"0xffff0000","0xffffffff",0,100,0,228,32)
+	Judge()
 end 

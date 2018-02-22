@@ -4,6 +4,7 @@
    "width" : 500,
    "height" : 600,
    "bg" : "bg.png",
+		"countdown" : 20,
    "cancelname" : "取消",
    "okname" : "确定",
    "views" : [

@@ -4,6 +4,7 @@
    "width" : 540,
    "height" : 960,
    "cancelscroll" : true,
+   "countdown" : 20,
    "cancelname" : "返回上一步",
    "okname" : "确定",
    "views" : [
@@ -30,22 +31,27 @@
          "bg" : "0,0,225",
          "type" : "Label"
       },
-	  {
-	      "id" : "EQUIP_TIME",
-	      "list" : "1,10,100,1000,直至无体力",
-	      "select" : "0",
-	      "size" : "30",
-	      "type" : "ComboBox"
+      {
+         "id" : "EQUIP_TIME",
+         "list" : "1,10,100,1000,直至无体力",
+         "select" : "0",
+         "size" : "30",
+         "type" : "ComboBox"
       },
-		{
-	      "id" : "Chounv",
-	      "list" : "发现丑女",
-	      "select" : "0",
-	      "size" : "30",
-	      "type" : "RadioGroup",
-	      "orientation" : "horizontal",
-	      "color" : "0,0,225"
+      {
+         "align" : "left",
+         "color" : "0,0,0",
+         "size" : "20",
+         "text" : "发现丑女稻草人",
+         "bg" : "0,0,225",
+         "type" : "Label"
+      },
+      {
+         "id" : "Chounv",
+         "list" : "启用,关闭",
+         "select" : "0",
+         "size" : "30",
+         "type" : "ComboBox"
       }
-     
    ]
 }
