@@ -1,0 +1,51 @@
+{
+   "style" : "default",
+   "config" : "save_阴阳师.dat",
+   "width" : 540,
+   "height" : 960,
+   "cancelscroll" : true,
+   "cancelname" : "返回上一步",
+   "okname" : "确定",
+   "views" : [
+      {
+         "align" : "left",
+         "color" : "0,0,0",
+         "size" : "50",
+         "text" : "御魂层数",
+         "bg" : "0,0,225",
+         "type" : "Label"
+      },
+      {
+         "id" : "EQUIP_LAYER",
+         "list" : "1,2,3,4,5,6,7,8,9,10",
+         "select" : "0",
+         "size" : "50",
+         "type" : "ComboBox"
+      },
+      {
+         "align" : "left",
+         "color" : "0,0,0",
+         "size" : "50",
+         "text" : "刷御魂次数",
+         "bg" : "0,0,225",
+         "type" : "Label"
+      },
+	  {
+	      "id" : "EQUIP_TIME",
+	      "list" : "1,10,100,1000,直至无体力",
+	      "select" : "0",
+	      "size" : "30",
+	      "type" : "ComboBox"
+      },
+		{
+	      "id" : "Chounv",
+	      "list" : "发现丑女",
+	      "select" : "0",
+	      "size" : "30",
+	      "type" : "RadioGroup",
+	      "orientation" : "horizontal",
+	      "color" : "0,0,225"
+      }
+     
+   ]
+}

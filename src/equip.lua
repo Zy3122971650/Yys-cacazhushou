@@ -36,6 +36,7 @@ function equip()
 	if YesOrNo_UI_EQUIP==1 --开始刷御魂
 	then
 		showHUD(id,"正在刷御魂",30,"0xffff0000","0xffffffff",0,100,0,228,32)
+		Chounv=tonumber(ret_UI_EQUIP["Chounv"])	
 		EQUIP_LAYER=tonumber(ret_UI_EQUIP["EQUIP_LAYER"])											--获取想要刷的层数
 		EQUIP_TIME_INIT=tonumber(ret_UI_EQUIP["EQUIP_TIME"])
 		if EQUIP_TIME_INIT==1 then EQUIP_TIME=9

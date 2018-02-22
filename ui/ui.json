@@ -1,0 +1,20 @@
+{
+   "style" : "custom",
+   "config" : "c",
+   "width" : 500,
+   "height" : 600,
+   "bg" : "bg.png",
+   "cancelname" : "取消",
+   "okname" : "确定",
+   "views" : [
+      {
+         "mid" : "1",
+         "id" : "xuanze",
+         "type" : "RadioGroup",
+         "list" : "御魂,觉醒,探索,卖萌",
+         "select" : "0",
+         "size" : "15",
+         "rect" : "128,19,153,435"
+      }
+   ]
+}
