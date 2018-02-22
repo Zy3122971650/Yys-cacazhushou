@@ -24,10 +24,16 @@ function FIGHT ()
 	end
 	------------------------------延时 需改(第一次修改)---------------------------------
 	while (true) do ----正真进入 FIGHT 
-		x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		x, y = findColor({416, 647, 493, 663}, 
+			{
+				{x=0,y=0,color=0x4c0a0a},
+				{x=-23,y=-1,color=0x46322a},
+				{x=-31,y=0,color=0x4f0d0d}
+			},
+			100, 0, 0, 0)
 		if x > -1 then
 			WHERE()
-		end
+		end -- 人工纠错后 在大蛇界面
 		x, y = findColor({885, 2, 1030, 129}, 
 			"0|0|0xfff4c7,38|9|0xb5a580,23|27|0xfff3d0",
 			100, 0, 0, 0)
@@ -43,11 +49,22 @@ function FIGHT ()
 	end 
 	
 	while (true) do 
-	
+		
 		x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
 		if x > -1 then
 			tap (x,y)
 			mSleep(300)
+		end
+		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
+		if x > -1 then
+			
+			break
+		else 
+			x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0)--失败
+			if x > -1 then
+				
+				break
+			end
 		end
 		if Chounv == 0   and Chounv_init==0          --发现丑女
 		then 
@@ -65,10 +82,16 @@ function FIGHT ()
 	end								--发现丑女 end
 	
 	while (true )do --第二关目
-	x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		x, y = findColor({416, 647, 493, 663}, 
+			{
+				{x=0,y=0,color=0x4c0a0a},
+				{x=-23,y=-1,color=0x46322a},
+				{x=-31,y=0,color=0x4f0d0d}
+			},
+			100, 0, 0, 0)
 		if x > -1 then
 			WHERE()
-		end
+		end -- 人工纠错后 在大蛇界面
 		x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
 		if x > -1 then
 			tap (x,y)
@@ -106,6 +129,17 @@ function FIGHT ()
 			tap (x,y)
 			mSleep(300)
 		end
+		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
+		if x > -1 then
+			
+			break
+		else 
+			x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0)--失败
+			if x > -1 then
+				
+				break
+			end
+		end
 		if Chounv == 0   and Chounv_init==0          --发现丑女
 		then 
 			x, y = findColorInRegionFuzzy(0x2b2b2b, 100, 843, 342, 1015, 484, 0, 0)
@@ -124,10 +158,16 @@ function FIGHT ()
 	mSleep(500)
 	
 	while (true) do  --第三关目
-			x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		x, y = findColor({416, 647, 493, 663}, 
+			{
+				{x=0,y=0,color=0x4c0a0a},
+				{x=-23,y=-1,color=0x46322a},
+				{x=-31,y=0,color=0x4f0d0d}
+			},
+			100, 0, 0, 0)
 		if x > -1 then
 			WHERE()
-		end
+		end -- 人工纠错后 在大蛇界面
 		x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
 		if x > -1 then
 			tap (x,y)
@@ -162,6 +202,17 @@ function FIGHT ()
 			tap (x,y)
 			mSleep(300)
 		end
+		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
+		if x > -1 then
+			
+			break
+		else 
+			x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0)--失败
+			if x > -1 then
+				
+				break
+			end
+		end
 		if Chounv == 0   and  Chounv_init==0          --发现丑女
 		then 
 			x, y = findColorInRegionFuzzy(0x2b2b2b, 100, 843, 342, 1015, 484, 0, 0)
@@ -177,13 +228,19 @@ function FIGHT ()
 	end								--发现丑女 end
 	Chounv_init=0
 	while (true) do --判断胜利 & 失败
-		x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		x, y = findColor({416, 647, 493, 663}, 
+			{
+				{x=0,y=0,color=0x4c0a0a},
+				{x=-23,y=-1,color=0x46322a},
+				{x=-31,y=0,color=0x4f0d0d}
+			},
+			100, 0, 0, 0)
 		if x > -1 then
 			WHERE()
-		end
+		end -- 人工纠错后 在大蛇界面
 		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
 		if x > -1 then
-								--[[结束这一局 Began ]]--
+			--[[结束这一局 Began ]]--
 			tap (261,697)
 			for k=4 ,1,-1 do 
 				tap (261,697)
@@ -192,10 +249,16 @@ function FIGHT ()
 			end 
 			break
 		else 
-			x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
-		if x > -1 then
-			WHERE()
-		end
+			x, y = findColor({416, 647, 493, 663}, 
+				{
+					{x=0,y=0,color=0x4c0a0a},
+					{x=-23,y=-1,color=0x46322a},
+					{x=-31,y=0,color=0x4f0d0d}
+				},
+				100, 0, 0, 0)
+			if x > -1 then
+				WHERE()
+			end -- 人工纠错后 在大蛇界面
 			x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0) --失败
 			if x > -1 then			--[[结束这一局 Began ]]--
 				tap (261,697)
