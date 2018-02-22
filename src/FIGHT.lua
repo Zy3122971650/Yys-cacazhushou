@@ -1,7 +1,6 @@
 function FIGHT ()
 	Chounv_init = 0
-	
-	mSleep(1000)
+	mSleep(200)
 	tap(1431,748)--点击开始
 	mSleep(1000)
 	while (true) do 
@@ -25,6 +24,10 @@ function FIGHT ()
 	end
 	------------------------------延时 需改(第一次修改)---------------------------------
 	while (true) do ----正真进入 FIGHT 
+		x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		if x > -1 then
+			WHERE()
+		end
 		x, y = findColor({885, 2, 1030, 129}, 
 			"0|0|0xfff4c7,38|9|0xb5a580,23|27|0xfff3d0",
 			100, 0, 0, 0)
@@ -40,6 +43,7 @@ function FIGHT ()
 	end 
 	
 	while (true) do 
+	
 		x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
 		if x > -1 then
 			tap (x,y)
@@ -53,6 +57,7 @@ function FIGHT ()
 					tap (1394,298) --点击右边怪
 				end
 				Chounv_init=1 
+				break
 			end
 		else
 			break
@@ -60,6 +65,10 @@ function FIGHT ()
 	end								--发现丑女 end
 	
 	while (true )do --第二关目
+	x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		if x > -1 then
+			WHERE()
+		end
 		x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
 		if x > -1 then
 			tap (x,y)
@@ -91,6 +100,7 @@ function FIGHT ()
 	end 
 	Chounv_init = 0
 	while (true) do 
+		
 		x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
 		if x > -1 then
 			tap (x,y)
@@ -104,6 +114,7 @@ function FIGHT ()
 					tap (1394,298) --点击右边怪
 				end
 				Chounv_init=1 
+				
 			end
 		else
 			break
@@ -113,6 +124,10 @@ function FIGHT ()
 	mSleep(500)
 	
 	while (true) do  --第三关目
+			x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		if x > -1 then
+			WHERE()
+		end
 		x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
 		if x > -1 then
 			tap (x,y)
@@ -162,26 +177,31 @@ function FIGHT ()
 	end								--发现丑女 end
 	Chounv_init=0
 	while (true) do --判断胜利 & 失败
+		x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		if x > -1 then
+			WHERE()
+		end
 		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
 		if x > -1 then
-			mSleep(1000)     --[[结束这一局 Began ]]--
+								--[[结束这一局 Began ]]--
 			tap (261,697)
-			mSleep(1000)
 			for k=4 ,1,-1 do 
 				tap (261,697)
-				mSleep(2000)  --[[结束这一局 	End ]]--
+				mSleep(1000)  --[[结束这一局 	End ]]--
 				
 			end 
 			break
 		else 
+			x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)--意外退出
+		if x > -1 then
+			WHERE()
+		end
 			x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0) --失败
 			if x > -1 then			--[[结束这一局 Began ]]--
-				mSleep(1000)
 				tap (261,697)
-				mSleep(1000)
 				for k=3 ,1,-1 do 
 					tap (261,697)
-					mSleep(2000)	--[[结束这一局 	End ]]--
+					mSleep(1000)	--[[结束这一局 	End ]]--
 				end 
 				break
 			end
@@ -202,3 +222,6 @@ function FIGHT ()
 	end 
 	Error_TIME=0
 end
+
+---------------------2018-2-23 BUG--------------
+--运行时可能出现 找不到点的问题
