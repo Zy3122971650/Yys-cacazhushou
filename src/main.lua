@@ -9,7 +9,7 @@ function main ()
 	require("FIGHT")--加载战斗模块
 	init("0",1)
 	WHERE()
-	
+	Judge ()
 	
 end 
 main()

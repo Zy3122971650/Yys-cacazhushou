@@ -45,5 +45,7 @@ function WHERE ()
 		
 	end 
 	showHUD(id,Text,30,"0xffff0000","0xffffffff",0,100,0,228,32)
-	Judge()
+	if xuanze == 0 
+	then equip()
+	end 
 end 
