@@ -27,13 +27,14 @@ end
 function VictoryOrLose_Judge()
 	   x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
 	if x > -1 then
-		VictoryOrLose ()
+		VictoryOrLose_EQUIP ()
 	else 
 		x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0)--失败
 		if x > -1 then
-			VictoryOrLose ()
+			VictoryOrLose_EQUIP()
 		end
-	end
+	end 	
+	
 end
 function Find_Chounv()
 	while (true) do 
@@ -56,10 +57,10 @@ function Find_Chounv()
 	
 end 	
 function Find_AWAKEN ()
-	x, y = findColorInRegionFuzzy(0xb9352c, 100, 0, 307, 39, 385, 0, 0)
-	if x > -1 then
-		WHERE()
-	end
+x, y = findColorInRegionFuzzy(0xada696, 100, 418, 642, 501, 664, 0, 0)
+		if x > -1 then
+			WHERE()
+		end
 end
 function Find_Big_Snake()
 	x, y = findColor({416, 647, 493, 663}, 
@@ -76,6 +77,7 @@ end
 function VictoryOrLose_EQUIP ()
 	while (true) do --判断胜利 & 失败
 		Find_Big_Snake()
+		View()
 		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
 		if x > -1 then
 			--[[结束这一局 Began ]]--
@@ -107,6 +109,7 @@ end
 function VictoryOrLose_AWAKEN ()
 	while (true) do --判断胜利 & 失败
 		Find_AWAKEN ()
+		View()
 		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
 		if x > -1 then
 			--[[结束这一局 Began ]]--
