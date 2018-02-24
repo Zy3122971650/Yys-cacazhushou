@@ -55,6 +55,12 @@ function Find_Chounv()
 	end					
 	
 end 	
+function Find_AWAKEN ()
+	x, y = findColorInRegionFuzzy(0xb9352c, 100, 0, 307, 39, 385, 0, 0)
+	if x > -1 then
+		WHERE()
+	end
+end
 function Find_Big_Snake()
 	x, y = findColor({416, 647, 493, 663}, 
 		{
@@ -79,6 +85,7 @@ function VictoryOrLose ()
 				mSleep(1000)  --[[结束这一局 	End ]]--
 				
 			end 
+			Victory=Victory+1
 			break
 			
 		else 
@@ -90,6 +97,7 @@ function VictoryOrLose ()
 					tap (261,697)
 					mSleep(1000)	--[[结束这一局 	End ]]--
 				end 
+				Lose=Lose+1
 				break
 			end
 			

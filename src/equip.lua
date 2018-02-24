@@ -77,11 +77,13 @@ function equip()
 			if EQUIP_TIME_INIT==4 
 			then 
 				while (true) do 
-					  FIGHT ()
+					
+					 FIGHT_EQUIP ()
 				end
 			else
 				for j=EQUIP_TIME,1,-1 do
-					FIGHT()
+					
+					FIGHT_EQUIP()
 				end
 			end
 		elseif i==2 
@@ -133,7 +135,8 @@ function equip()
 			if EQUIP_LAYER==9 then tap(X_EQUIP_LAYER10,Y_EQUIP_LAYER10) end
 		end 
 		--------------战斗部分----------------------------
-		FIGHT()
+		
+		FIGHT_EQUIP()
 		----------------END--------------------------------
 	else	--调回UI
 		hideHUD(id)

@@ -1,4 +1,4 @@
-function FIGHT ()
+function FIGHT_EQUIP ()
 	Chounv_init = 0
 	mSleep(200)
 	tap(1431,748)--点击开始
@@ -64,9 +64,6 @@ function FIGHT ()
 	mSleep(500)
 	
 	while (true) do  --第三关目
-		Find_Big_Snake()
-		View()
-		VictoryOrLose_Judge()
 		x, y = findColorInRegionFuzzy(0x9da5be, 100, 1273, 83, 1579, 446, 0, 0)
 		if x == -1 then
 			x, y = findColorInRegionFuzzy(0x5f7ac2, 100, 1273, 83, 1579, 446, 0, 0)
@@ -77,6 +74,9 @@ function FIGHT ()
 				break
 			end
 		end 
+		Find_Big_Snake()
+		View()
+		VictoryOrLose_Judge()
 	end
 	Chounv_init = 0
 	Find_Chounv()
@@ -97,3 +97,39 @@ function FIGHT ()
 	end 
 	Error_TIME=0
 end
+function FIGHT_AWAKEN ()
+	mSleep(200)
+	tap(1431,748)--点击开始
+	mSleep(1000)
+	while (true) do 
+		x, y = findColor({885, 2, 1030, 129}, 
+			"0|0|0xfff4c7,38|9|0xb5a580,23|27|0xfff3d0",
+			100, 0, 0, 0)
+		if x > -1 then
+			Error_TIME=0
+			break
+		elseif 	Error_TIME > 10 then toast("重新加载") Error_TIME=0 WHERE ()
+		end
+		mSleep(500)
+		Error_TIME = Error_TIME + 1 
+	end  --判断是否进入 战斗界面	
+	for a=5 ,1,-1 do 
+		x, y = findColorInRegionFuzzy(0xc66d27, 100, 1673, 781, 1856, 871, 0, 0)
+		if x > -1 then
+			tap (x,y)
+			break
+		end
+	end
+	if AWAKEN_JIHUO==0
+	then 
+		for a=3,1,-1 do 
+			tap(X_AWAKEN_B,Y_AWAKEN_B)
+		end 
+	else
+		for a=3,1,-1 do 
+			tap (X_AWAKEN_S,X_AWAKEN_S)
+		end 
+	end 
+	VictoryOrLose ()
+	
+end	

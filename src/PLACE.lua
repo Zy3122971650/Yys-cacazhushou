@@ -1,5 +1,5 @@
 function WHERE ()
-
+	
 	
 	init("0",1)
 	showHUD(id,"未发现当前位置",30,"0xffff0000","0xffffffff",0,100,0,228,32)      --显示HUD内容
@@ -27,6 +27,11 @@ function WHERE ()
 						x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)
 						if x > -1 then
 							i=5--大蛇
+						else 
+							x, y = findColorInRegionFuzzy(0xb9352c, 100, 0, 307, 39, 385, 0, 0)
+							if x > -1 then
+								i=6
+							end
 						end
 					end
 				end
@@ -41,11 +46,14 @@ function WHERE ()
 		if i == 4 then Text="探索界面" break end
 		if i == -1 then Text="未发现当前位置"end
 		if i == 5 then Text="大蛇" break end 
+		if i == 6 then Text="选择BOSS中" break end 
 		mSleep(500)
 		
 	end 
 	showHUD(id,Text,30,"0xffff0000","0xffffffff",0,100,0,228,32)
 	if xuanze == 0 
 	then equip()
+	elseif xuanze == 1
+	then awaken()
 	end 
 end 
