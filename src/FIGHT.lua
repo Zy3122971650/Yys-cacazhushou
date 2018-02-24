@@ -81,7 +81,7 @@ function FIGHT_EQUIP ()
 	Chounv_init = 0
 	Find_Chounv()
 	Chounv_init=0
-	VictoryOrLose()
+	VictoryOrLose_EQUIP()
 	
 	while (true) do 
 		x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0)
@@ -130,6 +130,6 @@ function FIGHT_AWAKEN ()
 			tap (X_AWAKEN_S,X_AWAKEN_S)
 		end 
 	end 
-	VictoryOrLose ()
+	VictoryOrLose_AWAKEN ()
 	
 end	

@@ -73,7 +73,7 @@ function Find_Big_Snake()
 		WHERE()
 	end -- 人工纠错后 在大蛇界面
 end 
-function VictoryOrLose ()
+function VictoryOrLose_EQUIP ()
 	while (true) do --判断胜利 & 失败
 		Find_Big_Snake()
 		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
@@ -90,6 +90,37 @@ function VictoryOrLose ()
 			
 		else 
 			Find_Big_Snake()
+			x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0) --失败
+			if x > -1 then			--[[结束这一局 Began ]]--
+				tap (261,697)
+				for k=3 ,1,-1 do 
+					tap (261,697)
+					mSleep(1000)	--[[结束这一局 	End ]]--
+				end 
+				Lose=Lose+1
+				break
+			end
+			
+		end
+	end
+end
+function VictoryOrLose_AWAKEN ()
+	while (true) do --判断胜利 & 失败
+		Find_AWAKEN ()
+		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
+		if x > -1 then
+			--[[结束这一局 Began ]]--
+			tap (261,697)
+			for k=4 ,1,-1 do 
+				tap (261,697)
+				mSleep(1000)  --[[结束这一局 	End ]]--
+				
+			end 
+			Victory=Victory+1
+			break
+			
+		else 
+			Find_AWAKEN ()
 			x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0) --失败
 			if x > -1 then			--[[结束这一局 Began ]]--
 				tap (261,697)

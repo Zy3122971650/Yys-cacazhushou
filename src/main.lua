@@ -1,6 +1,7 @@
 function main ()
 	-- i 判断位置的变量
 	id = createHUD()     --创建一个HUD
+	require("awaken")
 	require("function")--函数初始化
 	require("coodinate")--数据初始化
 	require("equip")--加载刷御魂模块

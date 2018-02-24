@@ -2,7 +2,7 @@ function awaken ()
 	if YesOrNo_UI_AWAKEN==1 --开始刷觉醒
 	then
 		showHUD(id,"正在刷觉醒",30,"0xffff0000","0xffffffff",0,100,0,228,32)
-		AWAKEN_JIHUO=tonumber(ret_UI_AWAKEN["jihuo"])
+		AWAKEN_JIHUO=tonumber(ret_UI_AWAKEN["Jihuo"])
 		AWAKEN_WHO=tonumber(ret_UI_AWAKEN["AWAKEN_WHO"])--刷哪个BOSS
 		AWAKEN_LAYER=tonumber(ret_UI_AWAKEN["AWAKEN_LAYER"])											--获取想要刷的层数
 		AWAKEN_TIME_INIT=tonumber(ret_UI_AWAKEN["AWAKEN_TIME"])
