@@ -39,14 +39,40 @@ function equip()
 		Chounv=tonumber(ret_UI_EQUIP["Chounv"])	
 		EQUIP_LAYER=tonumber(ret_UI_EQUIP["EQUIP_LAYER"])											--获取想要刷的层数
 		EQUIP_TIME_INIT=tonumber(ret_UI_EQUIP["EQUIP_TIME"])
-		EQUIP_TEAM=tonumber ( showUI (EQUIPUI [TEAM] ) )
-		EQUIP_TEAM_JOIN=tonumber ( showUI (EQUIPUI [TEAM_JOIN] ) )
+		EQUIP_TEAM=tonumber ( ret_UI_EQUIP ["TEAM"]  )
+		EQUIP_TEAM_JOIN=tonumber ( ret_UI_EQUIP ["TEAM_JOIN"]  )
 		if EQUIP_TIME_INIT==1 then EQUIP_TIME=9
 		elseif EQUIP_TIME_INIT==2 then EQUIP_TIME=99
 		elseif EQUIP_TIME_INIT==3 then EQUIP_TIME=999
 		elseif EQUIP_TIME_INIT==4 then EQUIP_TIME=9999999
 		end
-		if i==1 --庭院
+		if EQUIP_TEAM==0
+		then 
+			x, y = findColorInRegionFuzzy(0xab2323, 100, 498, 870, 701, 1029, 0, 0)
+			if x == -1 then
+				tap (1865,961)
+			end
+			tap(388,951)
+			mSleep (500)
+			tap (378,876)
+			mSleep(500)
+			tap(1566,938)
+			for a=4 ,1 , -1 do 
+				slide (955,960,614,434)
+			end 
+			tap(1313,885)
+			----------进入组队 战斗准备----------------------------------------
+			
+			while (true) do 
+				x, y = findColorInRegionFuzzy(0xf4b25f, 100, 1430, 857, 1693, 946, 0, 0) --组队界面
+				mSleep (500)
+				if x > -1 then
+					toast ("1")
+					break
+				end
+			end 
+			FIGHT_EQUIP()
+		elseif i==1 --庭院
 		then
 			x, y = findColorInRegionFuzzy(0xab2323, 100, 498, 870, 701, 1029, 0, 0)
 			if x > -1 then
@@ -107,7 +133,6 @@ function equip()
 			mSleep(2000)
 			tap(X_BIGSNAKE,Y_BIGSNAKE)--点击大蛇
 			mSleep(2000)
-		elseif --  组队
 		end      
 		
 		if (EQUIP_LAYER==0 or EQUIP_LAYER==1 or EQUIP_LAYER	==2 or EQUIP_LAYER==3) --判断顶层 数组由0开始

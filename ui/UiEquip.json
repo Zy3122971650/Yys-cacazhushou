@@ -4,7 +4,7 @@
    "width" : 540,
    "height" : 960,
    "cancelscroll" : true,
-   "countdown" : 20,
+   "countdown" : 50,
    "cancelname" : "返回上一步",
    "okname" : "确定",
    "views" : [
@@ -49,6 +49,20 @@
       {
          "id" : "Chounv",
          "list" : "启用,关闭",
+         "select" : "0",
+         "size" : "30",
+         "type" : "ComboBox"
+      },
+      {
+         "id" : "TEAM",
+         "list" : "开启,关闭",
+         "select" : "0",
+         "size" : "30",
+         "type" : "ComboBox"
+      },
+      {
+         "id" : "TEAM_JOIN",
+         "list" : "房主,加入",
          "select" : "0",
          "size" : "30",
          "type" : "ComboBox"

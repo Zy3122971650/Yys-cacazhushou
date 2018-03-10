@@ -10,6 +10,7 @@ function tap(x,y) 				-- 点击函数
 	hideHUD(id1)
 	mSleep(100)
 end
+
 function slide(x1,x2,y1,y2)		 --滑动函数
 	touchDown (0,x1,y1)
 	mSleep (50)
@@ -17,6 +18,7 @@ function slide(x1,x2,y1,y2)		 --滑动函数
 	mSleep(50)
 	touchUp(0,x2,y2)
 end
+
 function View()
 	x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
 	if x > -1 then
@@ -24,6 +26,7 @@ function View()
 		mSleep(300)
 	end
 end
+
 function VictoryOrLose_Judge()
 	   x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
 	if x > -1 then
@@ -36,6 +39,7 @@ function VictoryOrLose_Judge()
 	end 	
 	
 end
+
 function Find_Chounv()
 	while (true) do 
 		View()
@@ -56,12 +60,14 @@ function Find_Chounv()
 	end					
 	
 end 	
+
 function Find_AWAKEN ()
 	x, y = findColorInRegionFuzzy(0xada696, 100, 418, 642, 501, 664, 0, 0)
 	if x > -1 then
 		WHERE()
 	end
 end
+
 function Find_Big_Snake()
 	x, y = findColor({416, 647, 493, 663}, 
 		{
@@ -74,6 +80,7 @@ function Find_Big_Snake()
 		WHERE()
 	end -- 人工纠错后 在大蛇界面
 end 
+
 function VictoryOrLose_EQUIP ()
 	while (true) do --判断胜利 & 失败
 		Find_Big_Snake()
@@ -87,6 +94,7 @@ function VictoryOrLose_EQUIP ()
 				mSleep(1000)  --[[结束这一局 	End ]]--
 				
 			end 
+			TEAM ()
 			Victory=Victory+1
 			break
 			
@@ -119,6 +127,7 @@ function VictoryOrLose_AWAKEN ()
 				mSleep(1000)  --[[结束这一局 	End ]]--
 				
 			end 
+			TEAM ()
 			Victory=Victory+1
 			break
 			
@@ -142,21 +151,30 @@ function TEAM ()
 	
 	while (true) do
 		
-		if EQUIP_TEAM==1 or AWAKEN_TEAM==1 and Time==0 --组队功能开启 成功邀请后不再判断
+		if EQUIP_TEAM==0 or AWAKEN_TEAM==0  --组队功能开启 成功邀请后不再判断
 		then 
-			if EQUIP_TEAM_JOIN==1 or AWAKEN_TEAM_JOIN==1  --房主
+			if EQUIP_TEAM_JOIN==0 or AWAKEN_TEAM_JOIN==0  and Time==0  --房主
 			then
-				mSleep (2000)
-				tap(1,1) -- 勾选框
-				tap(1,1) -- 确定
-				Time = 1
-				tap(1,1) --退出页面
-			elseif  EQUIP_TEAM_JOIN==2
-			then
-				--点击出去
-				--等待邀请，点击自动
+				mSleep (3000)
+				tap(837,546) -- 勾选框
+				tap(1047,652) -- 确定
+				for a=1,2 do
+					tap(269,610) --退出页面
+				end 
 				Time=1
+				break
+			elseif  EQUIP_TEAM_JOIN==1 or AWAKEN_TEAM_JOIN==1  and Time==0 --加入
+			then
+				
+				Time=1
+			elseif EQUIP_TEAM_JOIN==0 or AWAKEN_TEAM_JOIN==0  and Time==2
+			then 
+				break
+			elseif  EQUIP_TEAM_JOIN==1 or AWAKEN_TEAM_JOIN==1  and Time==2
+			then
+				break
 			end
+			
 			
 		end	
 		
