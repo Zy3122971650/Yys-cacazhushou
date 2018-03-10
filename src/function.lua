@@ -57,10 +57,10 @@ function Find_Chounv()
 	
 end 	
 function Find_AWAKEN ()
-x, y = findColorInRegionFuzzy(0xada696, 100, 418, 642, 501, 664, 0, 0)
-		if x > -1 then
-			WHERE()
-		end
+	x, y = findColorInRegionFuzzy(0xada696, 100, 418, 642, 501, 664, 0, 0)
+	if x > -1 then
+		WHERE()
+	end
 end
 function Find_Big_Snake()
 	x, y = findColor({416, 647, 493, 663}, 
@@ -138,3 +138,28 @@ function VictoryOrLose_AWAKEN ()
 		end
 	end
 end
+function TEAM ()
+	
+	while (true) do
+		
+		if EQUIP_TEAM==1 or AWAKEN_TEAM==1 and Time==0 --组队功能开启 成功邀请后不再判断
+		then 
+			if EQUIP_TEAM_JOIN==1 or AWAKEN_TEAM_JOIN==1  --房主
+			then
+				mSleep (2000)
+				tap(1,1) -- 勾选框
+				tap(1,1) -- 确定
+				Time = 1
+				tap(1,1) --退出页面
+			elseif  EQUIP_TEAM_JOIN==2
+			then
+				--点击出去
+				--等待邀请，点击自动
+				Time=1
+			end
+			
+		end	
+		
+	end
+	
+end 	

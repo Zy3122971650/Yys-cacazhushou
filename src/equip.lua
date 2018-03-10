@@ -39,6 +39,8 @@ function equip()
 		Chounv=tonumber(ret_UI_EQUIP["Chounv"])	
 		EQUIP_LAYER=tonumber(ret_UI_EQUIP["EQUIP_LAYER"])											--获取想要刷的层数
 		EQUIP_TIME_INIT=tonumber(ret_UI_EQUIP["EQUIP_TIME"])
+		EQUIP_TEAM=tonumber ( showUI (EQUIPUI [TEAM] ) )
+		EQUIP_TEAM_JOIN=tonumber ( showUI (EQUIPUI [TEAM_JOIN] ) )
 		if EQUIP_TIME_INIT==1 then EQUIP_TIME=9
 		elseif EQUIP_TIME_INIT==2 then EQUIP_TIME=99
 		elseif EQUIP_TIME_INIT==3 then EQUIP_TIME=999
@@ -105,6 +107,7 @@ function equip()
 			mSleep(2000)
 			tap(X_BIGSNAKE,Y_BIGSNAKE)--点击大蛇
 			mSleep(2000)
+		elseif --  组队
 		end      
 		
 		if (EQUIP_LAYER==0 or EQUIP_LAYER==1 or EQUIP_LAYER	==2 or EQUIP_LAYER==3) --判断顶层 数组由0开始

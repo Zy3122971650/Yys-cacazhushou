@@ -1,0 +1,37 @@
+EQUIP_TEAM=tonumber ( showUI (EQUIPUI [TEAM] ) )
+EQUIP_TEAM_JOIN=tonumber ( showUI (EQUIPUI [TEAM_JOIN] ) )
+
+EQUIP_TEAM=1 --组队功能开启
+EQUIP_TEAM_JOIN=1 你是房主
+	       =2 你是队员
+Time=0
+--------------------------------------------------------------------------------------
+反正判断胜利之后
+-----------------------------------------------------------------------------------------
+function TEAM ()
+
+	while (true) do
+
+		if EQUIP_TEAM=1 or AWAKEN_TEAM=1 Time=0 --组队功能开启
+		then 
+			if EQUIP_TEAM_JOIN=1 
+			then
+				mSleep (2000)
+				tap(,) -- 勾选框
+				tap(,) -- 确定
+				Time = 1
+			elseif  EQUIP_TEAM_JOIN=2
+			then
+				--点击出去
+				--等待邀请，点击自动
+				Time=1
+			end
+
+		end	
+
+	end
+
+end 	
+	
+	
+
