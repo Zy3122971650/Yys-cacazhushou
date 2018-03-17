@@ -113,6 +113,7 @@ function VictoryOrLose_EQUIP ()
 			
 		end
 	end
+
 end
 function VictoryOrLose_AWAKEN ()
 	while (true) do --判断胜利 & 失败

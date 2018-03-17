@@ -54,11 +54,27 @@
          "type" : "ComboBox"
       },
       {
+         "align" : "left",
+         "color" : "0,0,0",
+         "size" : "20",
+         "text" : "开启组队",
+         "bg" : "0,0,225",
+         "type" : "Label"
+      },
+      {
          "id" : "TEAM",
          "list" : "开启,关闭",
          "select" : "0",
          "size" : "30",
          "type" : "ComboBox"
+      },
+      {
+         "align" : "left",
+         "color" : "0,0,0",
+         "size" : "20",
+         "text" : "房主or加入组队",
+         "bg" : "0,0,225",
+         "type" : "Label"
       },
       {
          "id" : "TEAM_JOIN",

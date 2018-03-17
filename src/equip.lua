@@ -46,19 +46,21 @@ function equip()
 		elseif EQUIP_TIME_INIT==3 then EQUIP_TIME=999
 		elseif EQUIP_TIME_INIT==4 then EQUIP_TIME=9999999
 		end
-		if EQUIP_TEAM==0
+		if EQUIP_TEAM==0 and i ~=999
 		then 
 			x, y = findColorInRegionFuzzy(0xab2323, 100, 498, 870, 701, 1029, 0, 0)
 			if x == -1 then
 				tap (1865,961)
 			end
 			tap(388,951)
-			mSleep (500)
+			mSleep (1000)
 			tap (378,876)
-			mSleep(500)
+			mSleep(1000)
 			tap(1566,938)
+			mSleep(1000)
 			for a=4 ,1 , -1 do 
 				slide (955,960,614,434)
+				mSleep(500)
 			end 
 			tap(1313,885)
 			----------进入组队 战斗准备----------------------------------------

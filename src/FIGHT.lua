@@ -11,10 +11,8 @@ function FIGHT_EQUIP ()
 				break
 			end
 		end 
-	else  tap(1431,748)--点击开始 单刷
+	else  tap(1431,748)  toast("点击")--点击开始 单刷 
 	end 
-	
-	mSleep(1000)
 	while (true) do 
 		x, y = findColor({885, 2, 1030, 129}, 
 			"0|0|0xfff4c7,38|9|0xb5a580,23|27|0xfff3d0",
@@ -23,15 +21,15 @@ function FIGHT_EQUIP ()
 			Error_TIME=0
 			if EQUIP_TEAM==0 or AWAKEN_TEAM==0
 			then 
-			while (true) do 
-				x, y = findColorInRegionFuzzy(0xc66d27, 100, 1673, 781, 1856, 871, 0, 0)
-				if x > -1 then
-					tap (x,y)
-					break
+				while (true) do 
+					x, y = findColorInRegionFuzzy(0xc66d27, 100, 1673, 781, 1856, 871, 0, 0)
+					if x > -1 then
+						tap (x,y)
+						break
+					end
 				end
 			end
-			break
-			end
+			break	
 		elseif 	Error_TIME > 10 then toast("重新加载") Error_TIME=0 WHERE ()
 		end
 		mSleep(500)
@@ -94,14 +92,22 @@ function FIGHT_EQUIP ()
 		Find_Big_Snake()
 		View()
 		VictoryOrLose_Judge()
+	
 	end
 	Chounv_init = 0
 	Find_Chounv()
 	Chounv_init=0
 	VictoryOrLose_EQUIP()
 	
+	
 	while (true) do 
-		x, y = findColorInRegionFuzzy(0x340b0b, 100, 377, 629, 588, 691, 0, 0) --个人挑战页面
+		x, y = findColor({416, 647, 493, 663}, 
+			{
+				{x=0,y=0,color=0x4c0a0a},
+				{x=-23,y=-1,color=0x46322a},
+				{x=-31,y=0,color=0x4f0d0d}
+			},
+			100, 0, 0, 0) --个人挑战页面
 		if x > -1 then
 			break
 		else
@@ -116,6 +122,7 @@ function FIGHT_EQUIP ()
 	then
 		i=999
 		equip()
+	
 	end 
 	Error_TIME=0
 end
