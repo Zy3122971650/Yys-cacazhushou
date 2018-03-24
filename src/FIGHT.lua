@@ -1,6 +1,6 @@
 function FIGHT_EQUIP ()
 	Chounv_init = 0
-	mSleep(200)
+	mSleep(1000)
 	
 	if EQUIP_TEAM==0 or AWAKEN_TEAM==0 --组队是否开启
 	then
@@ -92,7 +92,7 @@ function FIGHT_EQUIP ()
 		Find_Big_Snake()
 		View()
 		VictoryOrLose_Judge()
-	
+		toast("第三关卡")
 	end
 	Chounv_init = 0
 	Find_Chounv()
@@ -101,6 +101,7 @@ function FIGHT_EQUIP ()
 	
 	
 	while (true) do 
+		toast("位置判断ing")
 		x, y = findColor({416, 647, 493, 663}, 
 			{
 				{x=0,y=0,color=0x4c0a0a},
@@ -109,20 +110,24 @@ function FIGHT_EQUIP ()
 			},
 			100, 0, 0, 0) --个人挑战页面
 		if x > -1 then
+			toast("挑战页面 判断正确")
 			break
-		else
-			x, y = findColorInRegionFuzzy(0xf4b25f, 100, 1430, 857, 1693, 946, 0, 0) --组队界面
-			if x > -1 then
-				break
-			end
+		end 
+		
+		x, y = findColorInRegionFuzzy(0xf4b25f, 100, 1430, 857, 1693, 946, 0, 0) --组队界面
+		if x > -1 then
+			break
 		end
 		
+		
 	end 
+	
 	if i~=999 
 	then
 		i=999
+		toast("已跳至御魂判断")
 		equip()
-	
+		
 	end 
 	Error_TIME=0
 end

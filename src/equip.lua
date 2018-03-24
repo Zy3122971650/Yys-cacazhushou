@@ -103,7 +103,7 @@ function equip()
 			mSleep(2000)
 		elseif i==999 -- 第二次开始
 		then 
-			
+			toast("成功判断第二次进入战斗")
 			if EQUIP_TIME_INIT==4 
 			then 
 				while (true) do 
@@ -170,6 +170,7 @@ function equip()
 		----------------END--------------------------------
 	else	--调回UI
 		hideHUD(id)
+		var2 = 1
 		main()
 		
 	end

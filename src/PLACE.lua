@@ -1,10 +1,11 @@
 function WHERE ()
-	
+	toast("2")
 	
 	init("0",1)
-	showHUD(id,"未发现当前位置",30,"0xffff0000","0xffffffff",0,100,0,228,32)      --显示HUD内容
+	showHUD(id,"未发现当前位置",30,"0xffff0000","0xffffffff",0,100,0,228,32)   		--显示HUD内容
+	toast("4")
 	while ( true ) do 
-		
+		toast("5")
 		
 		x, y = findColor({0, 0, 1919, 1079}, 
 			"0|0|0xe9d595,21|-26|0x7974d2,29|21|0xbf4441",
@@ -51,9 +52,6 @@ function WHERE ()
 		
 	end 
 	showHUD(id,Text,30,"0xffff0000","0xffffffff",0,100,0,228,32)
-	if xuanze == 0 
-	then equip()
-	elseif xuanze == 1
-	then awaken()
-	end 
+	
+	
 end 

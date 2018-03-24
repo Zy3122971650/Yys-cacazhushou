@@ -1,5 +1,6 @@
 function Judge ()
 	YesOrNo_UI,ret_UI=showUI("ui.json");
+	while true do 
 	if YesOrNo_UI==0 then lua_exit() end
 	xuanze=tonumber(ret_UI["xuanze"])
 	if xuanze==0  then  YesOrNo_UI_EQUIP,ret_UI_EQUIP=showUI("UiEquip.json"	); 	equip() 
@@ -14,4 +15,10 @@ function Judge ()
 		else toast("感谢夸奖 QAQ ") 
 		end
 	end
+	if xuanze == 0 
+	then equip()
+	elseif xuanze == 1
+	then awaken()
+	end 
+	end 
 end

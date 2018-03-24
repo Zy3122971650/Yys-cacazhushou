@@ -83,6 +83,7 @@ end
 
 function VictoryOrLose_EQUIP ()
 	while (true) do --判断胜利 & 失败
+		toast("判断胜利ing")
 		Find_Big_Snake()
 		View()
 		x, y = findColorInRegionFuzzy(0x7c1a13, 100, 618, 220, 843, 343, 0, 0)--胜利
@@ -95,6 +96,7 @@ function VictoryOrLose_EQUIP ()
 				
 			end 
 			TEAM ()
+			toast("判断胜利结束")
 			Victory=Victory+1
 			break
 			
@@ -107,13 +109,14 @@ function VictoryOrLose_EQUIP ()
 					tap (261,697)
 					mSleep(1000)	--[[结束这一局 	End ]]--
 				end 
+				toast("判断胜利结束")
 				Lose=Lose+1
 				break
 			end
 			
 		end
 	end
-
+	
 end
 function VictoryOrLose_AWAKEN ()
 	while (true) do --判断胜利 & 失败
@@ -166,8 +169,8 @@ function TEAM ()
 				break
 			elseif  EQUIP_TEAM_JOIN==1 or AWAKEN_TEAM_JOIN==1  and Time==0 --加入
 			then
-				
 				Time=1
+				break
 			elseif EQUIP_TEAM_JOIN==0 or AWAKEN_TEAM_JOIN==0  and Time==2
 			then 
 				break
@@ -175,7 +178,8 @@ function TEAM ()
 			then
 				break
 			end
-			
+		else
+			break
 			
 		end	
 		
