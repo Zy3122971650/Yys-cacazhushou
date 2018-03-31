@@ -20,7 +20,9 @@ function slide(x1,x2,y1,y2)		 --滑动函数
 end
 
 function View()
-	x, y = findColorInRegionFuzzy(0x1f1103, 100, 3, 819, 123, 915, 0, 0)--纠正视野
+	x, y = findColor({0, 814, 140, 921}, 
+		"0|0|0xd6af67,16|-24|0xe5c48a,-8|-29|0x9b938b,26|7|0x3a2919",
+		95, 0, 0, 0)--纠正视野
 	if x > -1 then
 		tap (x,y)
 		mSleep(300)
@@ -78,6 +80,7 @@ function Find_Big_Snake()
 		100, 0, 0, 0)
 	if x > -1 then
 		WHERE()
+		equip()
 	end -- 人工纠错后 在大蛇界面
 end 
 
@@ -101,7 +104,7 @@ function VictoryOrLose_EQUIP ()
 			break
 			
 		else 
-			Find_Big_Snake()
+			
 			x, y = findColorInRegionFuzzy(0x4f4758, 100, 618, 220, 843, 343, 0, 0) --失败
 			if x > -1 then			--[[结束这一局 Began ]]--
 				tap (261,697)
@@ -111,6 +114,9 @@ function VictoryOrLose_EQUIP ()
 				end 
 				toast("判断胜利结束")
 				Lose=Lose+1
+				i=999
+				WHERE()
+				equip()
 				break
 			end
 			

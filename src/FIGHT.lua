@@ -30,7 +30,7 @@ function FIGHT_EQUIP ()
 				end
 			end
 			break	
-		elseif 	Error_TIME > 10 then toast("重新加载") Error_TIME=0 WHERE ()
+		elseif 	Error_TIME > 10 then toast("重新加载") Error_TIME=0 WHERE () equip()
 		end
 		mSleep(500)
 		Error_TIME = Error_TIME + 1 
@@ -81,7 +81,9 @@ function FIGHT_EQUIP ()
 	while (true) do  --第三关目
 		x, y = findColorInRegionFuzzy(0x9da5be, 100, 1273, 83, 1579, 446, 0, 0)
 		if x == -1 then
-			x, y = findColorInRegionFuzzy(0x5f7ac2, 100, 1273, 83, 1579, 446, 0, 0)
+			x, y = findColor({1313, 165, 1497, 441}, 
+				"0|0|0x9e8e7d,-38|-80|0x675f48,77|-91|0x3e3e57",
+				100, 0, 0, 0)
 			if x > -1 then
 				for a=3,1,-1 do  --点击中间怪
 					 tap (977,177)
@@ -126,9 +128,8 @@ function FIGHT_EQUIP ()
 	then
 		i=999
 		toast("已跳至御魂判断")
-		equip()
-		
 	end 
+	equip()
 	Error_TIME=0
 end
 function FIGHT_AWAKEN ()
